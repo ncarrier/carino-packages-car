@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <Servo.h>
 #include <Arduino.h>
 
