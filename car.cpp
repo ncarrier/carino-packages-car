@@ -14,9 +14,9 @@ static void my_pinMode(uint8_t pin, uint8_t mode)
 {
 	if (debug) {
 		Serial.print("# pinMode ");
-		Serial.print(mode);
+		Serial.printi(mode);
 		Serial.print(" to pin ");
-		Serial.print(pin);
+		Serial.printi(pin);
 		Serial.print("\n");
 	}
 
@@ -44,9 +44,9 @@ static void my_digitalWrite(uint8_t pin, uint8_t value)
 {
 	if (debug) {
 		Serial.print("# digitalWrite ");
-		Serial.print(value);
+		Serial.printi(value);
 		Serial.print(" to pin ");
-		Serial.print(pin);
+		Serial.printi(pin);
 		Serial.print("\n");
 	}
 
@@ -57,9 +57,9 @@ static void my_analogWrite(uint8_t pin, int value)
 {
 	if (debug) {
 		Serial.print("# analogWrite ");
-		Serial.print(value);
+		Serial.printi(value);
 		Serial.print(" to pin ");
-		Serial.print(pin);
+		Serial.printi(pin);
 		Serial.print("\n");
 	}
 
@@ -169,9 +169,9 @@ struct RangedServo {
 	{
 		if (debug) {
 			Serial.print("# RangedServo.write ");
-			Serial.print(value);
+			Serial.printi(value);
 			Serial.print(" to servo attached to pin ");
-			Serial.print(this->pin);
+			Serial.printi(this->pin);
 			Serial.print("\n");
 		}
 
@@ -244,7 +244,7 @@ static void check_lights(void)
 	light = analogRead(photo_sensor);
 	if (debug) {
 		Serial.print("photo sensor value :");
-		Serial.print(light);
+		Serial.printi(light);
 		Serial.print(" lights ");
 		Serial.print(lights_off ? "on" : "off");
 		Serial.print("\r\n");
