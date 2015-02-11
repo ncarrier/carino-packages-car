@@ -290,3 +290,16 @@ void loop(void)
 		tone(beeper.pin, beeper.tone, beeper.duration);
 }
 
+#ifndef EXTERNAL_MAIN
+
+int main(void)
+{
+	setup();
+
+	while (true)
+		loop();
+
+	return EXIT_SUCCESS;
+}
+
+#endif /* EXTERNAL_MAIN */
