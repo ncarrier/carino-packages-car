@@ -136,17 +136,22 @@ struct RangedServo {
 	int start;
 	int end;
 	int angle;
-	Servo servo;
+	Servo s;
 
-	RangedServo(uint8_t pin):
-		pin(pin)
+	void construct(uint8_t pin, int start, int end)
 	{
-		this->start = 0;
-		this->end = 180;
+		this->s = servo(&this->s);
+		this->start = start;
+		this->end = end;
+		this->pin = pin;
 	}
 
-	RangedServo(uint8_t pin, int start, int end):
-		pin(pin)
+	RangedServo(uint8_t pin)
+	{
+		construct(pin, 0, 180);
+	}
+
+	RangedServo(uint8_t pin, int start, int end)
 	{
 		int swap;
 
@@ -162,8 +167,7 @@ struct RangedServo {
 		if (end > 180)
 			end = 180;
 
-		this->start = start;
-		this->end = end;
+		construct(pin, start, end);
 	}
 
 	void write(int value)
@@ -176,7 +180,7 @@ struct RangedServo {
 			Serial.print("\n");
 		}
 
-		this->servo.write(value);
+		this->s.write(&this->s, value);
 	}
 
 	void set_angle(int angle)
@@ -192,7 +196,7 @@ struct RangedServo {
 
 	void init(void)
 	{
-		this->servo.attach(this->pin);
+		this->s.attach(&this->s, this->pin);
 		this->set_angle((this->start + this->end) / 2);
 	}
 };
