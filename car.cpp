@@ -275,8 +275,10 @@ void loop(void)
 	if (ret == 0)
 		return;
 
-	if (!ci_command_is_valid(&cmd))
+	if (!ci_command_is_valid(&cmd)) {
 		Serial.print("dropped invalid message\n");
+		return;
+	}
 
 	ci_command_dump(&cmd, printer);
 
