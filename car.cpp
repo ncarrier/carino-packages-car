@@ -202,7 +202,7 @@ struct RangedServo {
 };
 
 static struct Motor left_motor = Motor(2, 4, 3);
-static struct Motor right_motor = Motor(7, 8, 5);
+static struct Motor right_motor = Motor(7, 8, 9);
 static struct RangedServo wheel_direction = RangedServo(6, 51, 140);
 //static struct RangedServo wheel_direction = RangedServo(6, 0, 180);
 static struct RangedServo camera_x_angle = RangedServo(9);
