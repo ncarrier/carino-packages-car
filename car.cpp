@@ -255,9 +255,6 @@ void setup(void)
 	my_pinMode(head_lights, OUTPUT);
 	my_digitalWrite(head_lights, HIGH);
 
-	my_pinMode(13, OUTPUT);
-	my_digitalWrite(13, LOW);
-
 	printer("init done");
 }
 
